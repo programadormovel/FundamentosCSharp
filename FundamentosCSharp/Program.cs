@@ -209,11 +209,13 @@ namespace FundamentosCSharp
 			//Console.ReadKey();
 
 			//15
-			//MetodoSemRetorno();
 
-			//16 - https://learn.microsoft.com/pt-br/dotnet/standard/base-types/formatting-types
+			// Chamada de método
+			MetodoSemRetorno();
 
-			//Console.WriteLine("Entre com um valor numérico inteiro: ");
+			////16 - https://learn.microsoft.com/pt-br/dotnet/standard/base-types/formatting-types
+
+			//Console.WriteLine("Entre com \n um valor \t numérico \x020 inteiro: ");
 			//int valorInteiro = int.Parse(Console.ReadLine().Trim());
 			//Console.WriteLine("Valor como foi digitado: " + valorInteiro);
 			//Console.WriteLine("Formato Hexadecimal: " + valorInteiro.ToString("X"));
@@ -222,16 +224,18 @@ namespace FundamentosCSharp
 			//double valorReal = double.Parse(Console.ReadLine().Trim());
 			//Console.WriteLine("Valor como foi digitado: " + valorReal);
 			//Console.WriteLine("Moeda Corrente Padrão do Sistema: " + valorReal.ToString("C"));
-			//Console.WriteLine("Moeda Corrente Padrão do Sistema: " + valorReal.ToString("C", 
+			//Console.WriteLine("Moeda Corrente Padrão do Sistema: " + valorReal.ToString("C",
 			//		NumberFormatInfo.CurrentInfo));
 			//CultureInfo cultura = CultureInfo.CreateSpecificCulture("en-US");
 			//Console.WriteLine("Moeda Corrente Modificando para Americana: " + valorReal.ToString("C",
 			//		cultura));
-			//Console.WriteLine("Moeda Corrente Americana: " + valorReal.ToString("C", 
+			//Console.WriteLine("Moeda Corrente Americana: " + valorReal.ToString("C",
 			//		new System.Globalization.CultureInfo("en-US")));
+			//// Conversão de valor
+			//         Console.WriteLine("Moeda Corrente Modificando para Americana: " + (valorReal / 4.99).ToString("C",
+			//                 cultura));
 
-
-			//Console.WriteLine("Entre com um valor decimal: ");
+			//         Console.WriteLine("Entre com um valor decimal: ");
 			//decimal valorDecimal = decimal.Parse(Console.ReadLine().Trim());
 			//Console.WriteLine("Valor como foi digitado: " + valorDecimal);
 			//Console.WriteLine(valorDecimal.ToString("C"));
@@ -243,17 +247,17 @@ namespace FundamentosCSharp
 			//		new System.Globalization.CultureInfo("de-DE")));
 
 
-			//17 - 
-			DateTime hoje = DateTime.Now;
-			Console.WriteLine("Hoje : " + hoje.ToString());
-			CultureInfo culture = new CultureInfo("en-US");
-			Console.WriteLine("Padrão Americano : " + hoje.ToString(culture));
-			Console.WriteLine("Padrão Americano - Só data : " + hoje.ToString("d", culture));
-			Console.WriteLine("Padrão Americano - Só hora : " + hoje.ToString("t", culture));
+			////17 - 
+			//DateTime hoje = DateTime.Now;
+			//Console.WriteLine("Hoje : " + hoje.ToString());
+			//CultureInfo culture = new CultureInfo("en-US");
+			//Console.WriteLine("Padrão Americano : " + hoje.ToString(culture));
+			//Console.WriteLine("Padrão Americano - Só data : " + hoje.ToString("d", culture));
+			//Console.WriteLine("Padrão Americano - Só hora : " + hoje.ToString("t", culture));
 
-			DateTime dataQualquer = new DateTime(1977, 3, 23);
-			DateTimeFormatInfo formatoNovo = (new CultureInfo("ja-JP")).DateTimeFormat;
-			Console.WriteLine(dataQualquer.ToString("d", formatoNovo));
+			//DateTime dataQualquer = new DateTime(1977, 3, 23);
+			//DateTimeFormatInfo formatoNovo = (new CultureInfo("ja-JP")).DateTimeFormat;
+			//Console.WriteLine(dataQualquer.ToString("d", formatoNovo));
 
 
 
@@ -267,24 +271,67 @@ namespace FundamentosCSharp
             Console.ReadKey();
 
             // Classe Animal
+			// classe objeto = construtor
             Animal dog = new Animal();
+			// definir formato
             dog.nome = "Dogão";
             dog.idade = 12;
-            dog.latir("alemão");
+			dog.raca = "Dog Alemão";
+            // solicitar uma ação
+            Console.WriteLine("primeiro latido:");
+            dog.latir(dog.raca);
+
+			Animal lulu = new Animal();
+			lulu.nome = "Lulu";
+			lulu.idade = 7;
+			lulu.raca = "Pintcher";
+			Console.WriteLine("outro latido:");	
+			
+			string retornoDaChamada = lulu.latir(lulu.raca, lulu.nome);
+			Console.WriteLine(retornoDaChamada);
 
         }
     }
 
     public class Animal
     {
-        public string nome;
-        protected string raca;
-        internal int idade;
-        private string porte;
+		// Propriedades (atributos)
+        public string nome { get; set; } 
+        public string raca;
+        public int idade;
+        public string porte;
 
-        public void latir(string raca)
+		// Métodos (comportamento)
+        public void latir(string _raca)
         {
-            this.raca = raca;
+            this.raca = _raca;
+			if(this.raca.Equals("Pintcher"))
+			{
+				Console.WriteLine("Dahora");
+			}
+            else if(this.raca.Equals("Dog Alemão"))
+            {
+                Console.WriteLine("Alto e forte");
+            }
+            else if (this.raca.Equals("Pastor Alemão"))
+            {
+                Console.WriteLine("Alto e forte");
+            }
+        }
+		// sobrecarga do método latir
+        public String latir(string _raca, string _nome)
+        {
+			string resposta = "";
+            this.raca = _raca;
+            if (this.raca.Equals("Pintcher"))
+            {
+				resposta = "Dahora";
+            }
+            else if (this.raca.Equals("Dog Alemão"))
+            {
+				resposta = "Alto e forte";
+            }
+			return resposta;
         }
     }
 }
