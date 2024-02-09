@@ -183,12 +183,25 @@ namespace FundamentosCSharp
 
 			//// 13 
 			//int[] vetor = new int[10];
-			//for (int x = 0; x < vetor.Length; x++)
+			//for (int contador = 0; contador < vetor.Length; contador++)
 			//{
-			//    vetor[x] = x + 1;
-			//    Console.WriteLine("O valor do índice " + x + " do vetor é " + vetor[x] + " ");
+			//	vetor[contador] = contador + 1;
+			//	Console.WriteLine("O valor do índice " + contador + 
+			//		" do vetor é " + vetor[contador] + " ");
 			//}
 
+			//         // Entrada
+			//         int[] numero = new int[5];	
+
+			//foreach (int contador in numero)
+			//{
+			//             Console.WriteLine("Digita um número:");
+			//             numero[contador] = int.Parse(Console.ReadLine());
+			//             // Processamento
+			//             numero[contador]++;
+			//             // Saída
+			//             Console.WriteLine(numero[contador]);
+			//         }
 
 
 			//Console.ReadKey();
@@ -199,19 +212,21 @@ namespace FundamentosCSharp
 			//int[,] matriz = new int[5, 2];
 			//for (int x = 0; x < matriz.GetLength(0); x++)
 			//{
-			//    for (int y = 0; y < matriz.GetLength(1); y++)
-			//    {
-			//        matriz.SetValue(x+y+1, x, y);
-
-			//        Console.WriteLine("O valor do índice " + x + "," + y + " da matriz é " + matriz[x, y] + " ");
-			//    }
+			//	for (int y = 0; y < matriz.GetLength(1); y++)
+			//	{
+			//		matriz.SetValue(x + y + 1, x, y);
+					
+			//		Console.WriteLine("O valor do índice " + 
+			//			x + "," + y + " da matriz é " + 
+			//			matriz[x, y] + " ");
+			//	}
 			//}
 			//Console.ReadKey();
 
 			//15
 
 			// Chamada de método
-			MetodoSemRetorno();
+			// MetodoSemRetorno();
 
 			////16 - https://learn.microsoft.com/pt-br/dotnet/standard/base-types/formatting-types
 
